@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>List of tours: </title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>Date of departure</th>
+    <th>Date of arrival</th>
+  </tr>
+  <tr th:each="tour: ${tours}">
+    <td th:text="${tour.dateofDeparture}"></td>
+    <td th:text="${tour.dateofArrival}"></td>
+  </tr>
+</table>
+<a th:href="@{/tour/add}">Add new trip</a>
+</body>
+</html>
