@@ -21,6 +21,11 @@ public class TourController {
         this.tourRepository = tourRepository;
     }
 
+    @GetMapping("/add") // http://localhost:8080/tour/add
+    public String tourForm(@ModelAttribute("tour") Tour tour) {
+        return "tour/form";
+    }
+
     @PostMapping("/add") // http://localhost:8080/tour/add
     public String tourAdder(@ModelAttribute("tour") Tour tour) {
         tourRepository.save(tour);

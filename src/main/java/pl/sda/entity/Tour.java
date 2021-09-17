@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import java.time.LocalDate;
 @Entity
 public class Tour {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
