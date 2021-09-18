@@ -13,6 +13,12 @@
   <tr th:each="tour: ${tours}">
     <td th:text="${tour.dateofDeparture}"></td>
     <td th:text="${tour.dateofArrival}"></td>
+    <td th:text="${tour.tourLength}"></td>
+    <td th:text="${tour.boardType}"></td>
+    <td th:text="${tour.priceForAdult}"></td>
+    <td th:text="${tour.priceForChild}"></td>
+    <td th:text="${tour.howManyAdults}"></td>
+    <td th:text="${tour.howManyChildren}"></td>
   </tr>
 </table>
 <a th:href="@{/tour/add}">Add new trip</a>

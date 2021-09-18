@@ -7,6 +7,13 @@
 <body>
 Departure date: <strong th:text="${tour.dateOfDeparture}"></strong>
 Arrival date: <strong th:text="${tour.dateOfArrival}"></strong>
+Length of tour: <strong th:text="${tour.tourLength}"></strong>
+Type of board: <strong th:text="${tour.boardType}"></strong>
+Price for adults: <strong th:text="${tour.priceForAdult}"></strong>
+Price for children: <strong th:text="${tour.priceForChild}"></strong>
+Number of adults: <strong th:text="${tour.howManyAdults}"></strong>
+Number of children: <strong th:text="${tour.howManyChildren}"></strong>
+
 <br>
 <a th:href="@{/tour/list}">List of tours</a>
 </body>
