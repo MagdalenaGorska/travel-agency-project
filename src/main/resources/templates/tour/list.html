@@ -4,15 +4,23 @@
   <meta charset="UTF-8">
   <title>List of tours: </title>
 </head>
+
 <body>
 <table>
   <tr>
     <th>Date of departure</th>
     <th>Date of arrival</th>
+    <th>Tour length</th>
+    <th>Type of board</th>
+    <th>Price for adults</th>
+    <th>Price for children</th>
+    <th>Number of adults</th>
+    <th>Number of children</th>
   </tr>
+
   <tr th:each="tour: ${tours}">
-    <td th:text="${tour.dateofDeparture}"></td>
-    <td th:text="${tour.dateofArrival}"></td>
+    <td th:text="${tour.dateOfDeparture}"></td>
+    <td th:text="${tour.dateOfArrival}"></td>
     <td th:text="${tour.tourLength}"></td>
     <td th:text="${tour.boardType}"></td>
     <td th:text="${tour.priceForAdult}"></td>

@@ -7,28 +7,28 @@
 <body>
 <form method="post" autocomplete="off" th:object="${tour}">
     <div>
-        <label>Departure: <input type="text" th:field="*{dateOfDeparture}"></label>
+        <label>Departure: <input type="datetime-local" th:field="*{dateOfDeparture}"></label>
     </div>
     <div>
-        <label>Arrival: <input type="text" th:field="*{dateOfArrival}"></label>
+        <label>Arrival: <input type="datetime-local" th:field="*{dateOfArrival}"></label>
     </div>
     <div>
-        <label>Length of tour: <input type="text" th:field="*{tourLength}"></label>
+        <label>Length of tour: <input type="number" th:field="*{tourLength}"></label>
     </div>
     <div>
         <label>Type of board: <input type="text" th:field="*{boardType}"></label>
     </div>
     <div>
-        <label>Price for adults: <input type="text" th:field="*{priceForAdult}"></label>
+        <label>Price for adults: <input type="number" th:field="*{priceForAdult}"></label>
     </div>
     <div>
-        <label>Price for child: <input type="text" th:field="*{priceForChild}"></label>
+        <label>Price for child: <input type="number" th:field="*{priceForChild}"></label>
     </div>
     <div>
-        <label>Number of adults: <input type="text" th:field="*{howManyAdults}"></label>
+        <label>Number of adults: <input type="number" th:field="*{howManyAdults}"></label>
     </div>
     <div>
-        <label>Number of children: <input type="text" th:field="*{howManyChildren}"></label>
+        <label>Number of children: <input type="number" th:field="*{howManyChildren}"></label>
     </div>
     <input type="submit" value="Zatwierdź">
 </form>
