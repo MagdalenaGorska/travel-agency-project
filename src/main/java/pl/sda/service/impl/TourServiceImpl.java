@@ -5,10 +5,13 @@ import pl.sda.entity.Tour;
 import pl.sda.repository.TourRepository;
 import pl.sda.service.TourService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class TourServiceImpl implements TourService {
+
+    private List<Tour> tourList = new ArrayList<>();
 
     private final TourRepository tourRepository;
 
@@ -32,12 +35,13 @@ public class TourServiceImpl implements TourService {
     }
 
     @Override
-    public void update(Tour tour) {
+    public void updateTour(Tour tour) {
         tourRepository.save(tour);
     }
 
     @Override
-    public void delete(Tour tour) {
-        tourRepository.delete(tour);
+    public void deleteTour(Integer id) {
+        //Tour tour = getById(id);
+        tourRepository.deleteById(id);
     }
 }

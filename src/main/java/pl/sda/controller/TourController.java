@@ -1,5 +1,7 @@
 package pl.sda.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -42,10 +44,10 @@ public class TourController {
     }
 
     //usuwanie wycieczki
-    @DeleteMapping("/list")
-    public void deleteTour(@ModelAttribute("tour") Tour tour){
-        tourService.delete(tour);
-
+    @DeleteMapping("/list/{id}")
+    public String deleteTour(@PathVariable Integer id, Model model){
+        tourService.deleteTour(id);
+       return "tour/list";
     }
 
 
