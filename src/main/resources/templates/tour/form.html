@@ -12,11 +12,17 @@
     <div>
         <label>Arrival: <input type="datetime-local" th:field="*{dateOfArrival}"></label>
     </div>
+<!--    <div>-->
+<!--        <label>Length of tour: <input type="number" th:field="*{tourLength}"></label>-->
+<!--    </div>-->
     <div>
-        <label>Length of tour: <input type="number" th:field="*{tourLength}"></label>
-    </div>
-    <div>
-        <label>Type of board: <input type="text" th:field="*{boardType}"></label>
+        <label>Type of board: </label>
+        <select name="boardType">
+            <option value="HB" >HB</option>
+            <option value="BB" >BB</option>
+            <option value="FB" >FB</option>
+            <option value="AI" >AI</option>
+        </select>
     </div>
     <div>
         <label>Price for adults: <input type="number" th:field="*{priceForAdult}"></label>

@@ -1,7 +1,6 @@
 package pl.sda.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import pl.sda.model.BoardType;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.Period;
 
 @Entity
 public class Tour {
@@ -18,24 +17,24 @@ public class Tour {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-    private Date dateOfDeparture;
+    private LocalDate dateOfDeparture;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-    private Date dateOfArrival;
+    private LocalDate dateOfArrival;
     private Integer tourLength;
     private String boardType;
-    private Integer priceForAdult;
-    private Integer priceForChild;
+    private BigDecimal priceForAdult;
+    private BigDecimal priceForChild;
     private Integer howManyAdults;
     private Integer howManyChildren;
 
     public Tour(){}
 
-    public Tour(Date dateOfDeparture, Date dateOfArrival, Integer tourLength
-            , String boardType, Integer priceForAdult, Integer priceForChild
+    public Tour(LocalDate dateOfDeparture, LocalDate dateOfArrival, Integer tourLength
+            , String boardType, BigDecimal priceForAdult, BigDecimal priceForChild
             , Integer howManyAdults, Integer howManyChildren) {
         this.dateOfDeparture = dateOfDeparture;
         this.dateOfArrival = dateOfArrival;
-        this.tourLength = tourLength;
+        this.tourLength = Period.between(dateOfDeparture, dateOfArrival).getDays();
         this.boardType = boardType;
         this.priceForAdult = priceForAdult;
         this.priceForChild = priceForChild;
@@ -43,27 +42,27 @@ public class Tour {
         this.howManyChildren = howManyChildren;
     }
 
-    public Date getDateOfDeparture() {
+    public LocalDate getDateOfDeparture() {
         return dateOfDeparture;
     }
 
-    public Date getDateOfArrival() {
+    public LocalDate getDateOfArrival() {
         return dateOfArrival;
     }
 
     public Integer getTourLength() {
-        return tourLength;
+        return Period.between(dateOfDeparture, dateOfArrival).getDays();
     }
 
     public String getBoardType() {
         return boardType;
     }
 
-    public Integer getPriceForAdult() {
+    public BigDecimal getPriceForAdult() {
         return priceForAdult;
     }
 
-    public Integer getPriceForChild() {
+    public BigDecimal getPriceForChild() {
         return priceForChild;
     }
 
@@ -75,27 +74,24 @@ public class Tour {
         return howManyChildren;
     }
 
-    public void setDateOfDeparture(Date dateOfDeparture) {
+    public void setDateOfDeparture(LocalDate dateOfDeparture) {
         this.dateOfDeparture = dateOfDeparture;
     }
 
-    public void setDateOfArrival(Date dateOfArrival) {
+    public void setDateOfArrival(LocalDate dateOfArrival) {
         this.dateOfArrival = dateOfArrival;
     }
 
-    public void setTourLength(Integer tourLength) {
-        this.tourLength = tourLength;
-    }
 
     public void setBoardType(String boardType) {
         this.boardType = boardType;
     }
 
-    public void setPriceForAdult(Integer priceForAdult) {
+    public void setPriceForAdult(BigDecimal priceForAdult) {
         this.priceForAdult = priceForAdult;
     }
 
-    public void setPriceForChild(Integer priceForChild) {
+    public void setPriceForChild(BigDecimal priceForChild) {
         this.priceForChild = priceForChild;
     }
 
