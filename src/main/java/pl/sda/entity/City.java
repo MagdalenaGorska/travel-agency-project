@@ -9,7 +9,7 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    @OneToMany
+    @OneToMany (mappedBy = "city")
     List<Airport> airportList;
 
     public String getName() {
