@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
   <meta charset="UTF-8">
   <title>List of tours: </title>
@@ -27,6 +28,18 @@
     <td th:text="${tour.priceForChild}"></td>
     <td th:text="${tour.howManyAdults}"></td>
     <td th:text="${tour.howManyChildren}"></td>
+
+<!--    <div>-->
+<!--      <td>  <button type="button" name="Delete" th.value="{tour.id}">Delete</button></td>-->
+<!--      <td>  <button type="button" name="Edit" th.value="{tour.id}">Edit</button></td>-->
+<!--    </div>-->
+    <td>
+      <form th:action="@{/list}" th:object="${tour}" method="delete">
+       <button type="submit" name="Delete" th.value="{tour.id}">Delete</button>
+<!--        <input type="submit" value="Delete"/>-->
+      </form>
+    </td>
+
   </tr>
 </table>
 <a th:href="@{/tour/add}">Add new trip</a>

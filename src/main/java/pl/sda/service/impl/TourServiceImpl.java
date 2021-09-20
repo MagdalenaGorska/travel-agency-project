@@ -37,7 +37,7 @@ public class TourServiceImpl implements TourService {
     }
 
     @Override
-    public void delete(Integer id) {
-        tourRepository.deleteById(id);
+    public void delete(Tour tour) {
+        tourRepository.delete(tour);
     }
 }

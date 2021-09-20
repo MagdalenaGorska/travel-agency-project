@@ -13,6 +13,6 @@ public interface TourService {
 
     void update(Tour tour);
 
-    void delete(Integer id);
+    void delete(Tour tour);
 
 }

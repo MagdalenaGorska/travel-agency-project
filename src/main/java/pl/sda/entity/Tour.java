@@ -42,6 +42,11 @@ public class Tour {
         this.howManyChildren = howManyChildren;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+
     public LocalDate getDateOfDeparture() {
         return dateOfDeparture;
     }
@@ -73,6 +78,8 @@ public class Tour {
     public Integer getHowManyChildren() {
         return howManyChildren;
     }
+
+
 
     public void setDateOfDeparture(LocalDate dateOfDeparture) {
         this.dateOfDeparture = dateOfDeparture;
