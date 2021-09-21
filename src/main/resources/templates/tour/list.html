@@ -34,7 +34,7 @@
 <!--      <td>  <button type="button" name="Edit" th.value="{tour.id}">Edit</button></td>-->
 <!--    </div>-->
     <td>
-      <form th:action="@{/tour/list/${id}}" method="delete">
+      <form th:action="@{/tour/list}" object="${tour}" method="delete">
        <button type="submit" value="{tour.id}">Delete</button>
 <!--        <input type="submit" value="Delete"/>-->
       </form>

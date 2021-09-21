@@ -45,9 +45,11 @@ public class TourController {
 
     //usuwanie wycieczki
     @DeleteMapping("/list/{id}")
-    public String deleteTour(@PathVariable Integer id, Model model){
+    public void deleteTour(@PathVariable(value = "id") Integer id){
+       // Tour tour = tourService.getById(id);
+       // tourService.deleteTour(tour.getId());
         tourService.deleteTour(id);
-       return "tour/list";
+        //return "tour/list";
     }
 
 
