@@ -3,9 +3,9 @@ package pl.sda.entity;
 import javax.persistence.*;
 import java.util.List;
 
-//@Entity
+@Entity
 public class Airport {
-  /*  @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
@@ -26,5 +26,5 @@ public class Airport {
 
     public void setCity(City city) {
         this.city = city;
-    }*/
+    }
 }

@@ -29,13 +29,10 @@
     <td th:text="${tour.howManyAdults}"></td>
     <td th:text="${tour.howManyChildren}"></td>
 
-<!--    <div>-->
-<!--      <td>  <button type="button" name="Delete" th.value="{tour.id}">Delete</button></td>-->
-<!--      <td>  <button type="button" name="Edit" th.value="{tour.id}">Edit</button></td>-->
-<!--    </div>-->
     <td>
-      <form th:action="@{/tour/list}" object="${tour}" method="delete">
-       <button type="submit" value="{tour.id}">Delete</button>
+      <form th:action="@{/tour/delete}" method="post">
+        <input type="hidden" name="id" th:value="${tour.id}">
+       <button type="submit">Delete</button>
 <!--        <input type="submit" value="Delete"/>-->
       </form>
     </td>

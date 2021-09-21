@@ -16,6 +16,7 @@ public class Tour {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDate dateOfDeparture;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
@@ -45,7 +46,6 @@ public class Tour {
     public Integer getId() {
         return id;
     }
-
 
     public LocalDate getDateOfDeparture() {
         return dateOfDeparture;
@@ -89,6 +89,9 @@ public class Tour {
         this.dateOfArrival = dateOfArrival;
     }
 
+    public void setTourLength(Integer tourLength) {
+        this.tourLength = tourLength;
+    }
 
     public void setBoardType(String boardType) {
         this.boardType = boardType;
