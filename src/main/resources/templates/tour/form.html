@@ -6,11 +6,14 @@
 </head>
 <body>
 <form method="post" autocomplete="off" th:object="${tour}">
+<!--    <div>-->
+<!--        <label>Departure Place: <input type="text" th:field="*{departurePlace}"></label>-->
+<!--    </div>-->
     <div>
-        <label>Departure: <input type="datetime-local" th:field="*{dateOfDeparture}"></label>
+        <label>Departure Date: <input type="datetime-local" th:field="*{dateOfDeparture}"></label>
     </div>
     <div>
-        <label>Arrival: <input type="datetime-local" th:field="*{dateOfArrival}"></label>
+        <label>Arrival Date: <input type="datetime-local" th:field="*{dateOfArrival}"></label>
     </div>
     <div>
         <label>Type of board: </label>

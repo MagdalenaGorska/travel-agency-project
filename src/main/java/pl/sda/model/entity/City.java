@@ -1,4 +1,7 @@
-package pl.sda.entity;
+package pl.sda.model.entity;
+
+import org.apache.catalina.startup.HostRuleSet;
+import pl.sda.model.DeparturePlace;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,6 +14,14 @@ public class City {
     private String name;
     @OneToMany (mappedBy = "city")
     List<Airport> airportList;
+    @OneToMany (mappedBy = "city")
+    List<Hotel> hotelList;
+    @OneToOne
+    private DeparturePlace departurePlace; // nie get i set
+
+    public Integer getId() {
+        return id;
+    }
 
     public String getName() {
         return name;

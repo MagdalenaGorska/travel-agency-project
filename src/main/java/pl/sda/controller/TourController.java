@@ -6,7 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import pl.sda.entity.Tour;
+
+import pl.sda.model.entity.Tour;
 import pl.sda.repository.TourRepository;
 import pl.sda.service.TourService;
 

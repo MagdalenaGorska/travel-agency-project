@@ -1,6 +1,6 @@
 package pl.sda.service;
 
-import pl.sda.entity.Tour;
+import pl.sda.model.entity.Tour;
 
 import java.util.List;
 

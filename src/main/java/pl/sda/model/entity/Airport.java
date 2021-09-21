@@ -1,7 +1,8 @@
-package pl.sda.entity;
+package pl.sda.model.entity;
+
+import pl.sda.model.DeparturePlace;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Airport {
@@ -11,6 +12,12 @@ public class Airport {
     private String name;
     @ManyToOne
     private City city;
+    @OneToOne
+    private DeparturePlace departurePlace;
+
+    public Integer getId() {
+        return id;
+    }
 
     public String getName() {
         return name;

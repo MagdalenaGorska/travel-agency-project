@@ -1,7 +1,7 @@
 package pl.sda.service.impl;
 
 import org.springframework.stereotype.Service;
-import pl.sda.entity.Tour;
+import pl.sda.model.entity.Tour;
 import pl.sda.repository.TourRepository;
 import pl.sda.service.TourService;
 

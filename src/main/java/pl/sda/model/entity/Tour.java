@@ -1,11 +1,10 @@
-package pl.sda.entity;
+package pl.sda.model.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import pl.sda.model.DeparturePlace;
+import pl.sda.model.Destination;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
@@ -16,7 +15,10 @@ public class Tour {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @OneToOne
+    private DeparturePlace departurePlace;
+    //@Embedded
+    //private Destination destination;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDate dateOfDeparture;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
@@ -30,12 +32,13 @@ public class Tour {
 
     public Tour(){}
 
-    public Tour(LocalDate dateOfDeparture, LocalDate dateOfArrival, Integer tourLength
-            , String boardType, BigDecimal priceForAdult, BigDecimal priceForChild
-            , Integer howManyAdults, Integer howManyChildren) {
+
+    public Tour(DeparturePlace departurePlace, Destination destination, LocalDate dateOfDeparture, LocalDate dateOfArrival, Integer tourLength, String boardType, BigDecimal priceForAdult, BigDecimal priceForChild, Integer howManyAdults, Integer howManyChildren) {
+        this.departurePlace = departurePlace;
+        //this.destination = destination;
         this.dateOfDeparture = dateOfDeparture;
         this.dateOfArrival = dateOfArrival;
-        this.tourLength = Period.between(dateOfDeparture, dateOfArrival).getDays();
+        this.tourLength = tourLength;
         this.boardType = boardType;
         this.priceForAdult = priceForAdult;
         this.priceForChild = priceForChild;
@@ -47,66 +50,80 @@ public class Tour {
         return id;
     }
 
+    public DeparturePlace getDeparturePlace() {
+        return departurePlace;
+    }
+
+    public void setDeparturePlace(DeparturePlace departurePlace) {
+        this.departurePlace = departurePlace;
+    }
+
+//    public Destination getDestination() {
+//        return destination;
+//    }
+//
+//    public void setDestination(Destination destination) {
+//        this.destination = destination;
+//    }
+
     public LocalDate getDateOfDeparture() {
         return dateOfDeparture;
+    }
+
+    public void setDateOfDeparture(LocalDate dateOfDeparture) {
+        this.dateOfDeparture = dateOfDeparture;
     }
 
     public LocalDate getDateOfArrival() {
         return dateOfArrival;
     }
 
-    public Integer getTourLength() {
-        return Period.between(dateOfDeparture, dateOfArrival).getDays();
-    }
-
-    public String getBoardType() {
-        return boardType;
-    }
-
-    public BigDecimal getPriceForAdult() {
-        return priceForAdult;
-    }
-
-    public BigDecimal getPriceForChild() {
-        return priceForChild;
-    }
-
-    public Integer getHowManyAdults() {
-        return howManyAdults;
-    }
-
-    public Integer getHowManyChildren() {
-        return howManyChildren;
-    }
-
-
-
-    public void setDateOfDeparture(LocalDate dateOfDeparture) {
-        this.dateOfDeparture = dateOfDeparture;
-    }
-
     public void setDateOfArrival(LocalDate dateOfArrival) {
         this.dateOfArrival = dateOfArrival;
+    }
+
+    public Integer getTourLength() {
+        return tourLength;
     }
 
     public void setTourLength(Integer tourLength) {
         this.tourLength = tourLength;
     }
 
+    public String getBoardType() {
+        return boardType;
+    }
+
     public void setBoardType(String boardType) {
         this.boardType = boardType;
+    }
+
+    public BigDecimal getPriceForAdult() {
+        return priceForAdult;
     }
 
     public void setPriceForAdult(BigDecimal priceForAdult) {
         this.priceForAdult = priceForAdult;
     }
 
+    public BigDecimal getPriceForChild() {
+        return priceForChild;
+    }
+
     public void setPriceForChild(BigDecimal priceForChild) {
         this.priceForChild = priceForChild;
     }
 
+    public Integer getHowManyAdults() {
+        return howManyAdults;
+    }
+
     public void setHowManyAdults(Integer howManyAdults) {
         this.howManyAdults = howManyAdults;
+    }
+
+    public Integer getHowManyChildren() {
+        return howManyChildren;
     }
 
     public void setHowManyChildren(Integer howManyChildren) {
