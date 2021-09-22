@@ -9,6 +9,9 @@
 <body>
 <table>
   <tr>
+    <th>Departure location</th>
+    <th>Arrival location</th>
+    <th>Destination</th>
     <th>Date of departure</th>
     <th>Date of arrival</th>
     <th>Tour length</th>
@@ -20,6 +23,9 @@
   </tr>
 
   <tr th:each="tour: ${tours}">
+    <td th:text="${tour.departureLocation}"></td>
+    <td th:text="${tour.arrivalLocation}"></td>
+    <td th:text="${tour.destination}"></td>
     <td th:text="${tour.dateOfDeparture}"></td>
     <td th:text="${tour.dateOfArrival}"></td>
     <td th:text="${tour.tourLength}"></td>

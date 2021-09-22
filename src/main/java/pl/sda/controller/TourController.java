@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.model.entity.Tour;
+import pl.sda.service.LocationService;
 import pl.sda.service.TourService;
 
 import java.util.List;
@@ -14,9 +15,11 @@ import java.util.List;
 public class TourController {
 
     private final TourService tourService;
+    private final LocationService locationService;
 
-    public TourController(TourService tourService) {
+    public TourController(TourService tourService, LocationService locationService) {
         this.tourService = tourService;
+        this.locationService = locationService;
     }
 
     //przejscie do formularza

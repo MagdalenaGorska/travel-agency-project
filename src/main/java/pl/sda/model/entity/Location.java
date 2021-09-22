@@ -1,9 +1,6 @@
 package pl.sda.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Location {
@@ -14,6 +11,8 @@ public class Location {
     private String country;
     private String city;
     private String address;
+
+
 
     public Location(String country, String city, String address) {
         this.country = country;
