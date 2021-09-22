@@ -25,4 +25,71 @@ public class Tour {
 
     public Tour(){}
 
+    public Integer getId() {
+        return id;
+    }
+
+    public LocalDate getDateOfDeparture() {
+        return dateOfDeparture;
+    }
+
+    public LocalDate getDateOfArrival() {
+        return dateOfArrival;
+    }
+
+    public Integer getTourLength() {
+        return tourLength;
+    }
+
+    public String getBoardType() {
+        return boardType;
+    }
+
+    public BigDecimal getPriceForAdult() {
+        return priceForAdult;
+    }
+
+    public BigDecimal getPriceForChild() {
+        return priceForChild;
+    }
+
+    public Integer getHowManyAdults() {
+        return howManyAdults;
+    }
+
+    public Integer getHowManyChildren() {
+        return howManyChildren;
+    }
+
+    public void setDateOfDeparture(LocalDate dateOfDeparture) {
+        this.dateOfDeparture = dateOfDeparture;
+    }
+
+    public void setDateOfArrival(LocalDate dateOfArrival) {
+        this.dateOfArrival = dateOfArrival;
+    }
+
+    public void setTourLength(Integer tourLength) {
+        this.tourLength = tourLength;
+    }
+
+    public void setBoardType(String boardType) {
+        this.boardType = boardType;
+    }
+
+    public void setPriceForAdult(BigDecimal priceForAdult) {
+        this.priceForAdult = priceForAdult;
+    }
+
+    public void setPriceForChild(BigDecimal priceForChild) {
+        this.priceForChild = priceForChild;
+    }
+
+    public void setHowManyAdults(Integer howManyAdults) {
+        this.howManyAdults = howManyAdults;
+    }
+
+    public void setHowManyChildren(Integer howManyChildren) {
+        this.howManyChildren = howManyChildren;
+    }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class TourServiceImpl implements TourService {
 
-    private List<Tour> tourList = new ArrayList<>();
+    //private List<Tour> tourList = new ArrayList<>();
 
     private final TourRepository tourRepository;
 

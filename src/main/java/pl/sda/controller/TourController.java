@@ -1,17 +1,13 @@
 package pl.sda.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
 import pl.sda.model.entity.Tour;
-import pl.sda.repository.TourRepository;
 import pl.sda.service.TourService;
 
 import java.util.List;
+
 
 @Controller
 @RequestMapping("/tour")
@@ -50,6 +46,7 @@ public class TourController {
         tourService.deleteTour(id);
     }
 
+    //edycja wycieczki
     @PostMapping("/edit")
     public void tourEdit(@ModelAttribute("tour") Tour tour){
         tourService.updateTour(tour);

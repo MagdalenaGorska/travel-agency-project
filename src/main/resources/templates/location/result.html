@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Added location</title>
+</head>
+<body>
+Country: <strong th:text="${location.country}"></strong>
+City: <strong th:text="${location.city}"></strong>
+Address: <strong th:text="${location.address}"></strong>
+
+
+<br>
+<a th:href="@{/location/list}">List of location</a>
+</body>
+</html>
