@@ -36,6 +36,12 @@
 <!--        <input type="submit" value="Delete"/>-->
       </form>
     </td>
+    <td>
+      <form th:action="@{/tour/edit}" method="post">
+        <input type="hidden" name="id" th:value="${tour}">
+        <button type="submit">Edit</button>
+      </form>
+    </td>
 
   </tr>
 </table>

@@ -12,8 +12,8 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    @OneToMany (mappedBy = "city")
-    List<Airport> airportList;
+    //@OneToMany (mappedBy = "city")
+    //List<Airport> airportList;
     @OneToMany (mappedBy = "city")
     List<Hotel> hotelList;
     @OneToOne
@@ -31,11 +31,11 @@ public class City {
         this.name = name;
     }
 
-    public List<Airport> getAirportList() {
-        return airportList;
-    }
-
-    public void setAirportList(List<Airport> airportList) {
-        this.airportList = airportList;
-    }
+//    public List<Airport> getAirportList() {
+//        return airportList;
+//    }
+//
+//    public void setAirportList(List<Airport> airportList) {
+//        this.airportList = airportList;
+//    }
 }

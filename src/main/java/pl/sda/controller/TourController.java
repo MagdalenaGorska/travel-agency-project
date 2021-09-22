@@ -50,9 +50,8 @@ public class TourController {
         tourService.deleteTour(id);
     }
 
-
-    //    @PutMapping("/add")
-//    public String tourEdit(@ModelAttribute("tour") Tour tour){
-//        return tourRepository.delete(tour);
-//    }
+    @PostMapping("/edit")
+    public void tourEdit(@ModelAttribute("tour") Tour tour){
+        tourService.updateTour(tour);
+    }
 }

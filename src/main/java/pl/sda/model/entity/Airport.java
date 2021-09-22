@@ -10,8 +10,8 @@ public class Airport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    @ManyToOne
-    private City city;
+    //@ManyToOne
+    //private City city;
     @OneToOne
     private DeparturePlace departurePlace;
 
@@ -27,11 +27,11 @@ public class Airport {
         this.name = name;
     }
 
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
+//    public City getCity() {
+//        return city;
+//    }
+//
+//    public void setCity(City city) {
+//        this.city = city;
+//    }
 }
