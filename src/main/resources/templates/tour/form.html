@@ -7,14 +7,25 @@
 <body>
 <form method="post" autocomplete="off" th:object="${tour}">
     <div>
-        <label>Departure location: <input type="text" th:field="*{departureLocation}"></label>
+        <label>
+            Location:
+            <select th:field="*{location}">
+                <!-- Odwołanie do atrybutu modelu o nazwie authors
+                - dla każdego autora z wartości tego atrybutu, przypiszemy tego autora do zmiennej
+                author i wygenerujemy opcję selecta. -->
+                <option th:each="location: ${locations}" th:value="${location.id}" th:text="${location.country}"></option>
+            </select>
+        </label>
     </div>
-    <div>
-        <label>Arrival location: <input type="text" th:field="*{arrivalLocation}"></label>
-    </div>
-    <div>
-        <label>Destination: <input type="text" th:field="*{destination}"></label>
-    </div>
+<!--    <div>-->
+<!--        <label>Departure location: <input type="text" th:field="*{departureLocation}"></label>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>Arrival location: <input type="text" th:field="*{arrivalLocation}"></label>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>Destination: <input type="text" th:field="*{destination}"></label>-->
+<!--    </div>-->
     <div>
         <label>Departure Date: <input type="datetime-local" th:field="*{dateOfDeparture}"></label>
     </div>
