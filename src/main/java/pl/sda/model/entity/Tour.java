@@ -1,13 +1,10 @@
 package pl.sda.model.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import pl.sda.model.DeparturePlace;
-import pl.sda.model.Destination;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.Period;
 
 @Entity
 public class Tour {
