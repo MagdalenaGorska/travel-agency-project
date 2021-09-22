@@ -35,27 +35,28 @@ public class Tour {
         return id;
     }
 
-    public String getDepartureLocation() {
+
+    public Location getDepartureLocation() {
         return departureLocation;
     }
 
-    public void setDepartureLocation(String departureLocation) {
+    public void setDepartureLocation(Location departureLocation) {
         this.departureLocation = departureLocation;
     }
 
-    public String getArrivalLocation() {
+    public Location getArrivalLocation() {
         return arrivalLocation;
     }
 
-    public void setArrivalLocation(String arrivalLocation) {
+    public void setArrivalLocation(Location arrivalLocation) {
         this.arrivalLocation = arrivalLocation;
     }
 
-    public String getDestination() {
+    public Location getDestination() {
         return destination;
     }
 
-    public void setDestination(String destination) {
+    public void setDestination(Location destination) {
         this.destination = destination;
     }
 

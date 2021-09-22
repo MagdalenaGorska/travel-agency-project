@@ -1,6 +1,7 @@
 package pl.sda.model.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Location {
@@ -11,7 +12,8 @@ public class Location {
     private String country;
     private String city;
     private String address;
-
+    @OneToMany
+    List<Tour> tourList;
 
 
     public Location(String country, String city, String address) {
