@@ -9,18 +9,13 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String country;
     private String city;
     private String address;
     @OneToMany
     List<Tour> tourList;
 
-
-    public Location(String country, String city, String address) {
-        this.country = country;
-        this.city = city;
-        this.address = address;
-    }
 
     public Location() {
     }

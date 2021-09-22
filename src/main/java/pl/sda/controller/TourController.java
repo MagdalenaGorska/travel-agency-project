@@ -24,13 +24,14 @@ public class TourController {
 
     //przejscie do formularza
     @GetMapping("/add") // http://localhost:8080/tour/add
-    public String tourForm(@ModelAttribute("tour") Tour tour) {
+    public String tourForm(Model model, @ModelAttribute("tour") Tour tour) {
+        model.addAttribute("locations", locationService.getAll());
         return "tour/form";
     }
 
     //dodawanie w formularzu
     @PostMapping("/add") // http://localhost:8080/tour/add
-    public String tourAdder(@ModelAttribute("tour") Tour tour) {
+    public String tourAdder( @ModelAttribute("tour") Tour tour) {
         tourService.save(tour);
         return "tour/result";
     }
