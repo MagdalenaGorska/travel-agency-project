@@ -9,8 +9,5 @@ public class TourDto {
 
     private Integer id;
 
-    private Airport airportDto;
-
-    private City cityDto;
 
 }
