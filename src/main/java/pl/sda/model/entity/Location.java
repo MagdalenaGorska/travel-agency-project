@@ -47,4 +47,16 @@ public class Location {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public String getFullLocation(){
+        return "country: " + country +
+                ", city: " + city +
+                ", address: " + address;
+    }
+    @Override
+    public String toString() {
+        return "country: " + country + "/n" +
+                ", city: " + city + "/n" +
+                ", address: " + address;
+    }
 }
