@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 public class Tour {
@@ -30,6 +31,20 @@ public class Tour {
     private Integer howManyChildren;
 
     public Tour(){}
+
+    public Tour(Location departureLocation, Location arrivalLocation, Location destination, LocalDate dateOfDeparture, LocalDate dateOfArrival, Integer tourLength, String boardType, BigDecimal priceForAdult, BigDecimal priceForChild, Integer howManyAdults, Integer howManyChildren) {
+        this.departureLocation = departureLocation;
+        this.arrivalLocation = arrivalLocation;
+        this.destination = destination;
+        this.dateOfDeparture = dateOfDeparture;
+        this.dateOfArrival = dateOfArrival;
+        this.tourLength = Period.between(dateOfDeparture, dateOfArrival).getDays();
+        this.boardType = boardType;
+        this.priceForAdult = priceForAdult;
+        this.priceForChild = priceForChild;
+        this.howManyAdults = howManyAdults;
+        this.howManyChildren = howManyChildren;
+    }
 
     public Integer getId() {
         return id;
@@ -77,7 +92,7 @@ public class Tour {
     }
 
     public Integer getTourLength() {
-        return tourLength;
+        return Period.between(dateOfDeparture, dateOfArrival).getDays();
     }
 
     public void setTourLength(Integer tourLength) {
