@@ -35,6 +35,7 @@
     <td th:text="${tour.howManyAdults}"></td>
     <td th:text="${tour.howManyChildren}"></td>
 
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
     <td>
       <form th:action="@{/tour/delete}" method="post">
         <input type="hidden" name="id" th:value="${tour.id}">
@@ -48,9 +49,11 @@
         <button type="submit">Edit</button>
       </form>
     </td>
-
+    </div>
   </tr>
 </table>
-<a th:href="@{/tour/add}">Add new trip</a>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+  <a th:href="@{/tour/add}">Add new trip</a>
+</div>
 </body>
 </html>

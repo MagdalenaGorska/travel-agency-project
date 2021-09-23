@@ -12,6 +12,7 @@ Strona domowa
     Zalogowano jako: <strong sec:authentication="name"></strong>
     <hr>
     <a th:href="@{/tour/list}">List of tours</a>
+
     <div sec:authorize="hasRole('ROLE_ADMIN')">
         Widoczne tylko dla admina.
         <a th:href="@{/location/add}">Dodawanie lokacji</a>

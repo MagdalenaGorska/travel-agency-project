@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista w koszyku</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Tour:</th>
+    </tr>
+
+    <tr th:each="basket: ${baskets}">
+        <td th:text="${basket.tour}"></td>
+    </tr>
+</table>
+<a th:href="@{/tour/list}">Go back to tour list</a>
+</body>
+</body>
+</html>
