@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
 
                 // Żądanie wysłane pod ścieżkę /admin-only
-                .antMatchers("/admin-only", "location/list")
+                .antMatchers("/admin-only", "/location/list", "/location/add","/location/result")
                 // będzie wymagało posiadania roli ADMIN
                 .hasRole("ADMIN")
 

@@ -5,7 +5,7 @@
     <title>Tours form: </title>
 </head>
 <body>
-<form method="post" autocomplete="off" th:object="${tour}">
+<form method="post" autocomplete="off" th:object="${tour}" th:action="@{/tour/add}">
     <div>
         <label>
             Departure country:

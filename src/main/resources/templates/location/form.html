@@ -5,7 +5,7 @@
     <title>Location form</title>
 </head>
 <body>
-    <form method="post" autocomplete="off" th:object="${location}">
+    <form method="post" autocomplete="off" th:object="${location}" th:action="@{/location/add}">
         <div>
             <label>Country: <input type="text" th:field="*{country}"></label>
         </div>
