@@ -1,13 +1,10 @@
 package pl.sda.repository;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import pl.sda.model.entity.User;
 
-public interface UserRepository extends JpaRepository<User, Integer> {
+import java.util.Optional;
 
-    User findByUsername(String username);
-
-    boolean existsByUsername(String username);
-
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByUsername(String username);
 }
