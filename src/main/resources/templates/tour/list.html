@@ -7,6 +7,12 @@
 </head>
 
 <body>
+<div sec:authorize="hasRole('ROLE_USER')">
+  <td>
+    <a th:href="@{/basket/list}">Go to basket list</a>
+  </td>
+</div>
+
 <table>
   <tr>
     <th>Departure location</th>

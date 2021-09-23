@@ -29,21 +29,36 @@ public class Tour {
     private BigDecimal priceForChild;
     private Integer howManyAdults;
     private Integer howManyChildren;
+    @ManyToOne
+    private Basket basket;
 
     public Tour(){}
 
-    public Tour(Location departureLocation, Location arrivalLocation, Location destination, LocalDate dateOfDeparture, LocalDate dateOfArrival, Integer tourLength, String boardType, BigDecimal priceForAdult, BigDecimal priceForChild, Integer howManyAdults, Integer howManyChildren) {
+    public Tour(Location departureLocation, Location arrivalLocation, Location destination, LocalDate dateOfDeparture, LocalDate dateOfArrival, Integer tourLength, String boardType, BigDecimal priceForAdult, BigDecimal priceForChild, Integer howManyAdults, Integer howManyChildren, Basket basket) {
         this.departureLocation = departureLocation;
         this.arrivalLocation = arrivalLocation;
         this.destination = destination;
         this.dateOfDeparture = dateOfDeparture;
         this.dateOfArrival = dateOfArrival;
-        this.tourLength = Period.between(dateOfDeparture, dateOfArrival).getDays();
+        this.tourLength = tourLength;
         this.boardType = boardType;
         this.priceForAdult = priceForAdult;
         this.priceForChild = priceForChild;
         this.howManyAdults = howManyAdults;
         this.howManyChildren = howManyChildren;
+        this.basket = basket;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Basket getBasket() {
+        return basket;
+    }
+
+    public void setBasket(Basket basket) {
+        this.basket = basket;
     }
 
     public Integer getId() {

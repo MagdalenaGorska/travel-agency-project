@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 // Żądania wysłane pod poniższe ścieżki
                 .antMatchers("/", "/favicon.ico", "/tour/list",
-                        "/user/register")
+                        "/user/register", "/basket/list")
                 // będą dostępne dla każdego.
                 .permitAll()
 
