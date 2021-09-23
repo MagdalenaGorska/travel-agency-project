@@ -10,6 +10,8 @@ Strona domowa
     Zawartość widoczna tylko dla użytkownika zalogowanego.
     <hr>
     Zalogowano jako: <strong sec:authentication="name"></strong>
+    <hr>
+    <a th:href="@{/tour/list}">List of tours</a>
     <div sec:authorize="hasRole('ROLE_ADMIN')">
         Widoczne tylko dla admina.
     </div>
