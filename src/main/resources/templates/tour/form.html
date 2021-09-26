@@ -2,73 +2,155 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <th:block th:replace="fragments.html :: my-head"></th:block>
     <title>Tours form: </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-<form method="post" autocomplete="off" th:object="${tour}" th:action="@{/tour/add}">
-    <div>
-        <label>
-            Departure country:
-            <select th:field="*{departureLocation}">
+<nav th:replace="fragments.html :: my-header('tour-form')"></nav>
+<div class="container">
+    <form class="row g-3" method="post" autocomplete="off" th:object="${tour}" th:action="@{/tour/add}">
+        <div>
+            <label class="form-label"> Departure country:
+            <select th:field="*{departureLocation}" aria-label="Default select example">
                 <option th:each="departureLocation: ${locations}" th:value="${departureLocation.id}" th:text="${departureLocation.getFullLocation()}"></option>
             </select>
-        </label>
-    </div>
+            </label>
+        </div>
 
-    </div>
-    <div>
-        <label>
-            Arrival:
-            <select th:field="*{arrivalLocation}">
-                <option th:each="arrivalLocation: ${locations}" th:value="${arrivalLocation.id}" th:text="${arrivalLocation.getFullLocation()}"></option>
-            </select>
-        </label>
-    </div>
-    <div>
-        <label>
-            Destination city:
-            <select th:field="*{destination}">
-                <option th:each="destination: ${locations}" th:value="${destination.id}" th:text="${destination.getFullLocation()}"></option>
-            </select>
-        </label>
-    </div>
-    <!--    <div>-->
-    <!--        <label>Departure location: <input type="text" th:field="*{departureLocation}"></label>-->
-    <!--    </div>-->
-    <!--    <div>-->
-    <!--        <label>Arrival location: <input type="text" th:field="*{arrivalLocation}"></label>-->
-    <!--    </div>-->
-    <!--    <div>-->
-    <!--        <label>Destination: <input type="text" th:field="*{destination}"></label>-->
-    <!--    </div>-->
-    <div>
-        <label>Departure Date: <input type="datetime-local" th:field="*{dateOfDeparture}"></label>
-    </div>
-    <div>
-        <label>Arrival Date: <input type="datetime-local" th:field="*{dateOfArrival}"></label>
-    </div>
-    <div>
-        <label>Type of board: </label>
-        <select name="boardType">
-            <option value="HB" >HB</option>
-            <option value="BB" >BB</option>
-            <option value="FB" >FB</option>
-            <option value="AI" >AI</option>
-        </select>
-    </div>
-    <div>
-        <label>Price for adults: <input type="number" th:field="*{priceForAdult}"></label>
-    </div>
-    <div>
-        <label>Price for child: <input type="number" th:field="*{priceForChild}"></label>
-    </div>
-    <div>
-        <label>Number of adults: <input type="number" th:field="*{howManyAdults}"></label>
-    </div>
-    <div>
-        <label>Number of children: <input type="number" th:field="*{howManyChildren}"></label>
-    </div>
-    <input type="submit" value="Zatwierdź">
-</form>
+        <div>
+            <label class="form-label"> Arrival:
+                <select th:field="*{arrivalLocation}" aria-label="Default select example">
+                    <option th:each="arrivalLocation: ${locations}" th:value="${arrivalLocation.id}" th:text="${arrivalLocation.getFullLocation()}"></option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            <label class="form-label"> Destination:
+                <select th:field="*{destination}" aria-label="Default select example">
+                    <option th:each="destination: ${locations}" th:value="${destination.id}" th:text="${destination.getFullLocation()}"></option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            <label>Departure Date: <input type="datetime-local" th:field="*{dateOfDeparture}"></label>
+        </div>
+
+        <div>
+            <label>Arrival Date: <input type="datetime-local" th:field="*{dateOfArrival}"></label>
+        </div>
+
+        <div>
+            <label class="form-label">Type of board:
+                <select name="boardType" aria-label="Default select example">
+                    <option value="HB" >HB</option>
+                    <option value="BB" >BB</option>
+                    <option value="FB" >FB</option>
+                    <option value="AI" >AI</option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            <label class="form-label">Price for adults:
+                <input type="number" th:field="*{priceForAdult}">
+            </label>
+        </div>
+
+        <div>
+            <label class="form-label">Price for child:
+                <input type="number" th:field="*{priceForChild}">
+            </label>
+        </div>
+
+        <div>
+            <label class="form-label">Number of adults:
+                <input type="number" th:field="*{howManyAdults}">
+            </label>
+        </div>
+
+        <div>
+            <label class="form-label">Number of children:
+                <input type="number" th:field="*{howManyChildren}">
+            </label>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Zatwierdź">
+
+
+        <!--<form method="post" autocomplete="off" th:object="${tour}" th:action="@{/tour/add}">-->
+<!--    <div>-->
+<!--        <label>-->
+<!--            Departure country:-->
+<!--            <select th:field="*{departureLocation}">-->
+<!--                <option th:each="departureLocation: ${locations}" th:value="${departureLocation.id}" th:text="${departureLocation.getFullLocation()}"></option>-->
+<!--            </select>-->
+<!--        </label>-->
+<!--    </div>-->
+
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label>-->
+<!--            Arrival:-->
+<!--            <select th:field="*{arrivalLocation}">-->
+<!--                <option th:each="arrivalLocation: ${locations}" th:value="${arrivalLocation.id}" th:text="${arrivalLocation.getFullLocation()}"></option>-->
+<!--            </select>-->
+<!--        </label>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label>-->
+<!--            Destination city:-->
+<!--            <select th:field="*{destination}">-->
+<!--                <option th:each="destination: ${locations}" th:value="${destination.id}" th:text="${destination.getFullLocation()}"></option>-->
+<!--            </select>-->
+<!--        </label>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label>Departure Date: <input type="datetime-local" th:field="*{dateOfDeparture}"></label>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label>Arrival Date: <input type="datetime-local" th:field="*{dateOfArrival}"></label>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label>Type of board: </label>-->
+<!--        <select name="boardType">-->
+<!--            <option value="HB" >HB</option>-->
+<!--            <option value="BB" >BB</option>-->
+<!--            <option value="FB" >FB</option>-->
+<!--            <option value="AI" >AI</option>-->
+<!--        </select>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label>Price for adults: <input type="number" th:field="*{priceForAdult}"></label>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label>Price for child: <input type="number" th:field="*{priceForChild}"></label>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label>Number of adults: <input type="number" th:field="*{howManyAdults}"></label>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label>Number of children: <input type="number" th:field="*{howManyChildren}"></label>-->
+<!--    </div>-->
+
+<!--    <input type="submit" value="Zatwierdź">-->
+<!--</form>-->
+
 </body>
 </html>

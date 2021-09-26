@@ -2,16 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <th:block th:replace="fragments.html :: my-head"></th:block>
     <title>Lista w koszyku</title>
 </head>
+
 <body>
+<nav th:replace="fragments.html :: my-header('basket-list')"></nav>
 <table>
     <tr>
         <th>Tour:</th>
     </tr>
 
     <tr th:each="basket: ${baskets}">
-        <td th:text="${basket.tour}"></td>
+        <td th:text="${basket.tourList}"></td>
     </tr>
 </table>
 <a th:href="@{/tour/list}">Go back to tour list</a>

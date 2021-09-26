@@ -1,15 +1,12 @@
 package pl.sda.model.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -22,6 +19,12 @@ public class User implements UserDetails {
     private String username;
     private String password;
     private String role = "USER";
+    @OneToOne
+    private Basket basket;
+
+    public Long getId() {
+        return id;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -36,6 +39,14 @@ public class User implements UserDetails {
     @Override
     public String getUsername() {
         return username;
+    }
+
+    public Basket getBasket() {
+        return basket;
+    }
+
+    public void setBasket(Basket basket) {
+        this.basket = basket;
     }
 
     public void setUsername(String username) {
@@ -69,4 +80,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

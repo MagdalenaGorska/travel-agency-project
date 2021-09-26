@@ -29,8 +29,7 @@ public class Tour {
     private BigDecimal priceForChild;
     private Integer howManyAdults;
     private Integer howManyChildren;
-    @ManyToOne
-    private Basket basket;
+
 
     public Tour(){}
 
@@ -46,19 +45,10 @@ public class Tour {
         this.priceForChild = priceForChild;
         this.howManyAdults = howManyAdults;
         this.howManyChildren = howManyChildren;
-        this.basket = basket;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Basket getBasket() {
-        return basket;
-    }
-
-    public void setBasket(Basket basket) {
-        this.basket = basket;
     }
 
     public Integer getId() {

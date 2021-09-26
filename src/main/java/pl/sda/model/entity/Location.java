@@ -1,6 +1,8 @@
 package pl.sda.model.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -9,12 +11,15 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @NotBlank
+    @Size(min = 3, max = 50, message = "Państwo musi posiadać od {min} do {max} znaków")
     private String country;
+    @NotBlank
+    @Size(min = 3, max = 50, message = "Miasto musi posiadać od {min} do {max} znaków")
     private String city;
+    @NotBlank
+    @Size(min = 3, max = 50, message = "Adress musi posiadać od {min} do {max} znaków")
     private String address;
-    @OneToMany
-    List<Tour> tourList;
 
 
     public Location() {

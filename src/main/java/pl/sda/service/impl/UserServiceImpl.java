@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import pl.sda.model.entity.User;
 import pl.sda.repository.UserRepository;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserDetailsService {
     private final UserRepository userRepository;
@@ -29,6 +31,10 @@ public class UserServiceImpl implements UserDetailsService {
         userRepository.save(user);
     }
 
+    public User getById(Long id){
+        User user = userRepository.getById(id);
+        return user;
+    }
     public void encodePassword(User user) {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);

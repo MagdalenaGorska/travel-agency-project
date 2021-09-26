@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Zarejestrowano użytkownika</title>
+  <th:block th:replace="fragments.html :: my-head"></th:block>
+  <title>N</title>
 <body>
+<nav th:replace="fragments.html :: my-header('register-result')"></nav>
 <div class="container">
-  <div class="alert alert-primary">Zarejestrowano użytkownika</div>
-  <a class="btn btn-primary" th:href="@{/}">Powrót do strony głównej</a>
+  <div class="alert alert-primary">The new user has been registered</div>
+  <a class="btn btn-primary" th:href="@{/}">Home page</a>
 </div>
 </body>
 </html>

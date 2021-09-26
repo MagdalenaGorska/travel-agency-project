@@ -2,20 +2,52 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <th:block th:replace="fragments.html :: my-head"></th:block>
     <title>Location form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-    <form method="post" autocomplete="off" th:object="${location}" th:action="@{/location/add}">
-        <div>
-            <label>Country: <input type="text" th:field="*{country}"></label>
+<nav th:replace="fragments.html :: my-header('location-form')"></nav>
+<div class="container">
+    <form class="row g-3" method="post" autocomplete="off" th:object="${location}" th:action="@{/location/add}">
+        <div class="col-md-6">
+            <label class="form-label" for= "country" > Country:</label>
+            <input class="form-control" id="country" type="text"
+                   th:field="*{country}" th:classappend="${#fields.hasErrors('country')} ? 'is-invalid' : ''">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></div>
         </div>
-        <div>
-            <label>City: <input type="text" th:field="*{city}"></label>
+        <div class="col-md-6">
+            <label class="form-label" for="city">City:</label>
+            <input class="form-control" id="city" type="text"
+                   th:field="*{city}"  th:classappend="${#fields.hasErrors('city')} ? 'is-invalid' : ''">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
         </div>
-        <div>
-            <label>Address: <input type="text" th:field="*{address}"></label>
+        <div class="col-md-6">
+            <label class="form-label" for="address">Address:</label>
+            <input class="form-control" id="address" type="text"
+                   th:field="*{address}"  th:classappend="${#fields.hasErrors('address')} ? 'is-invalid' : ''">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
         </div>
-        <input type="submit" value="Zatwierdź">
+        <input class="btn btn-primary" type="submit" value="Zatwierdź">
     </form>
+</div>
+<!--    <form method="post" autocomplete="off" th:object="${location}" th:action="@{/location/add}">-->
+<!--        <div>-->
+<!--            <label>Country: <input type="text" th:field="*{country}"></label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label>City: <input type="text" th:field="*{city}"></label>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label>Address: <input type="text" th:field="*{address}"></label>-->
+<!--        </div>-->
+<!--        <input type="submit" value="Zatwierdź">-->
+<!--    </form>-->
 </body>
 </html>

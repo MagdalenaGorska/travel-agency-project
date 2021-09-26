@@ -2,9 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <th:block th:replace="fragments.html :: my-head"></th:block>
     <title>Added location</title>
 </head>
 <body>
+<nav th:replace="fragments.html :: my-header('location-result')"></nav>
 Country: <strong th:text="${location.country}"></strong>
 City: <strong th:text="${location.city}"></strong>
 Address: <strong th:text="${location.address}"></strong>

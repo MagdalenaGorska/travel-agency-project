@@ -3,56 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Strona domowa</title>
+    <th:block th:replace="fragments.html :: my-head"></th:block>
 </head>
 <body>
-Strona domowa
+<nav th:replace="fragments.html :: my-header('home')"></nav>
+<h1>Home page</h1>
 <div sec:authorize="isAuthenticated()">
-    Zawartość widoczna tylko dla użytkownika zalogowanego.
+    User is logged in.
     <hr>
-    Zalogowano jako: <strong sec:authentication="name"></strong>
+    You are logged in as: <strong sec:authentication="name"></strong>
     <hr>
     <a th:href="@{/tour/list}">List of tours</a>
 
     <div sec:authorize="hasRole('ROLE_ADMIN')">
-        Widoczne tylko dla admina.
-        <a th:href="@{/location/add}">Dodawanie lokacji</a>
-        <a th:href="@{/location/list}">Lista lokacji</a>
+        Only visible to the admin.
+        <a th:href="@{/location/add}">Add new location</a>
+        <a th:href="@{/location/list}">Location list</a>
     </div>
     <form method="post" th:action="@{/logout}">
-        <input type="submit" value="Wyloguj">
+        <input type="submit" value="Log out">
     </form>
 </div>
 <div sec:authorize="isAnonymous()">
-    Jesteś niezalogowany.
-    <h1>Zaloguj się</h1>
+    You're not logged in.
+    <h1>Log in</h1>
     <form autocomplete="off" method="post" th:action="@{/}">
         <div>
             <label>
-                Nazwa użytkownika:
+                Username:
                 <input type="text" name="username">
             </label>
         </div>
         <div>
             <label>
-                Hasło:
+                Password:
                 <input type="password" name="password">
             </label>
         </div>
-        <input type="submit" value="Zaloguj">
+        <input type="submit" value="Log in">
     </form>
     <hr>
 
-    <h1>Zarejestruj się</h1>
+    <h1>Sign up</h1>
     <form autocomplete="off" method="post" th:action="@{/user/register}">
         <div>
             <label>
-                Nazwa użytkownika:
+                Username:
                 <input type="text" name="username">
             </label>
         </div>
         <div>
             <label>
-                Hasło:
+                Password:
                 <input type="password" name="password">
             </label>
         </div>

@@ -17,13 +17,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    /*@PostMapping("/register") // http://localhost:8080/user/register
-    public String register(@ModelAttribute("user") User user) {
-        userService.encodePassword(user);
-        user.setRole("USER");
-        userService.save(user);
-        return "registration-success";
-    }*/
     @GetMapping("/register")
     public String getRegisterForm() {
         return "user/register-form";

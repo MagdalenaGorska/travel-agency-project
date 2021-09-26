@@ -2,9 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <th:block th:replace="fragments.html :: my-head"></th:block>
+    <title>Edit tour</title>
 </head>
 <body>
+<nav th:replace="fragments.html :: my-header('tour-edit')"></nav>
 <h1>Tour is edited</h1>
 
 <a th:href="@{/tour/list}">List of tours</a>
