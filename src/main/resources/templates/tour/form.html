@@ -60,9 +60,12 @@
         </div>
 
         <div>
-            <label class="form-label">Price for adults:
-                <input type="number" th:field="*{priceForAdult}">
-            </label>
+            <label class="form-label" for="priceForAdult"> Price for adults: </label>
+<!--            <label class="form-label">Price for adults:-->
+<!--                <input type="number" th:field="*{priceForAdult}">-->
+                <input class="form-control" id="priceForAdult" type="number" th:field="*{priceForAdult}"  th:classappend="${#fields.hasErrors('priceForAdult')} ? 'is-invalid' : ''">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('priceForAdult')}" th:errors="*{priceForAdult}"></div>
+<!--            </label>-->
         </div>
 
         <div>
@@ -84,73 +87,6 @@
         </div>
 
         <input class="btn btn-primary" type="submit" value="Zatwierdź">
-
-
-        <!--<form method="post" autocomplete="off" th:object="${tour}" th:action="@{/tour/add}">-->
-<!--    <div>-->
-<!--        <label>-->
-<!--            Departure country:-->
-<!--            <select th:field="*{departureLocation}">-->
-<!--                <option th:each="departureLocation: ${locations}" th:value="${departureLocation.id}" th:text="${departureLocation.getFullLocation()}"></option>-->
-<!--            </select>-->
-<!--        </label>-->
-<!--    </div>-->
-
-<!--    </div>-->
-<!--    <div>-->
-<!--        <label>-->
-<!--            Arrival:-->
-<!--            <select th:field="*{arrivalLocation}">-->
-<!--                <option th:each="arrivalLocation: ${locations}" th:value="${arrivalLocation.id}" th:text="${arrivalLocation.getFullLocation()}"></option>-->
-<!--            </select>-->
-<!--        </label>-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        <label>-->
-<!--            Destination city:-->
-<!--            <select th:field="*{destination}">-->
-<!--                <option th:each="destination: ${locations}" th:value="${destination.id}" th:text="${destination.getFullLocation()}"></option>-->
-<!--            </select>-->
-<!--        </label>-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        <label>Departure Date: <input type="datetime-local" th:field="*{dateOfDeparture}"></label>-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        <label>Arrival Date: <input type="datetime-local" th:field="*{dateOfArrival}"></label>-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        <label>Type of board: </label>-->
-<!--        <select name="boardType">-->
-<!--            <option value="HB" >HB</option>-->
-<!--            <option value="BB" >BB</option>-->
-<!--            <option value="FB" >FB</option>-->
-<!--            <option value="AI" >AI</option>-->
-<!--        </select>-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        <label>Price for adults: <input type="number" th:field="*{priceForAdult}"></label>-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        <label>Price for child: <input type="number" th:field="*{priceForChild}"></label>-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        <label>Number of adults: <input type="number" th:field="*{howManyAdults}"></label>-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        <label>Number of children: <input type="number" th:field="*{howManyChildren}"></label>-->
-<!--    </div>-->
-
-<!--    <input type="submit" value="Zatwierdź">-->
-<!--</form>-->
 
 </body>
 </html>

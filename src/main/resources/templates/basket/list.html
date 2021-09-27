@@ -8,16 +8,17 @@
 
 <body>
 <nav th:replace="fragments.html :: my-header('basket-list')"></nav>
-<table>
-    <tr>
-        <th>Tour:</th>
-    </tr>
+<div class="container">
+    <table class="table">
+        <tr class="table-primary">
+            <th scope="col">Tour</th>
+        </tr>
 
-    <tr th:each="basket: ${baskets}">
-        <td th:text="${basket.tourList}"></td>
-    </tr>
-</table>
+        <tr th:each="basket: ${baskets}">
+            <td th:text="${basket.tourList}"></td>
+        </tr>
+    </table>
+</div>
 <a th:href="@{/tour/list}">Go back to tour list</a>
-</body>
 </body>
 </html>

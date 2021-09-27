@@ -24,8 +24,8 @@
         </div>
         <div class="col-md-6">
             <label class="form-label" for="city">City:</label>
-            <input class="form-control" id="city" type="text"
-                   th:field="*{city}"  th:classappend="${#fields.hasErrors('city')} ? 'is-invalid' : ''">
+            <input class="form-control" id="city" type="text" th:field="*{city}"  th:classappend="${#fields.hasErrors('city')} ? 'is-invalid' : ''">
+<!--                <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>-->
             <div class="invalid-feedback" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
         </div>
         <div class="col-md-6">
@@ -37,17 +37,6 @@
         <input class="btn btn-primary" type="submit" value="Zatwierdź">
     </form>
 </div>
-<!--    <form method="post" autocomplete="off" th:object="${location}" th:action="@{/location/add}">-->
-<!--        <div>-->
-<!--            <label>Country: <input type="text" th:field="*{country}"></label>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--            <label>City: <input type="text" th:field="*{city}"></label>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--            <label>Address: <input type="text" th:field="*{address}"></label>-->
-<!--        </div>-->
-<!--        <input type="submit" value="Zatwierdź">-->
-<!--    </form>-->
+
 </body>
 </html>

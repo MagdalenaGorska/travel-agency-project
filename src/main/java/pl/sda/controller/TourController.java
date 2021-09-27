@@ -2,6 +2,8 @@ package pl.sda.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.model.entity.Tour;
 import pl.sda.service.LocationService;
@@ -31,7 +33,10 @@ public class TourController {
 
     //dodawanie w formularzu
     @PostMapping("/add") // http://localhost:8080/tour/add
-    public String tourAdder( @ModelAttribute("tour") Tour tour) {
+    public String tourAdder(@Validated @ModelAttribute("tour") Tour tour, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()){
+            return "tour/form";
+        }
         tourService.save(tour);
         return "tour/result";
     }

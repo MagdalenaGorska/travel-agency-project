@@ -3,6 +3,7 @@ package pl.sda.model.entity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
@@ -25,9 +26,17 @@ public class Tour {
     private LocalDate dateOfArrival;
     private Integer tourLength;
     private String boardType;
+
+    @NotBlank
+    @NotNull
+    @DecimalMin(value = "0.0")
     private BigDecimal priceForAdult;
+    @DecimalMin(value = "0.0")
     private BigDecimal priceForChild;
+    @NotNull
+    @Min(value = 1)
     private Integer howManyAdults;
+    @Min(value = 0)
     private Integer howManyChildren;
 
 
@@ -146,18 +155,16 @@ public class Tour {
 
     @Override
     public String toString() {
-        return "Tour{" +
-                "departureLocation=" + departureLocation +
+        return "departureLocation=" + departureLocation +
                 ", arrivalLocation=" + arrivalLocation +
                 ", destination=" + destination +
                 ", dateOfDeparture=" + dateOfDeparture +
                 ", dateOfArrival=" + dateOfArrival +
                 ", tourLength=" + tourLength +
-                ", boardType='" + boardType + '\'' +
+                ", boardType='" + boardType +
                 ", priceForAdult=" + priceForAdult +
                 ", priceForChild=" + priceForChild +
                 ", howManyAdults=" + howManyAdults +
-                ", howManyChildren=" + howManyChildren +
-                '}';
+                ", howManyChildren=" + howManyChildren;
     }
 }

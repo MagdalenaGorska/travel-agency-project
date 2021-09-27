@@ -2,6 +2,8 @@ package pl.sda.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +31,10 @@ public class LocationController {
 
     //dodawanie w formularzu
     @PostMapping("/add") // http://localhost:8080/location/add
-    public String locationAdder(@ModelAttribute("location") Location location) {
+    public String locationAdder(@Validated @ModelAttribute("location") Location location, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()){
+            return"location/form";
+        }
         locationService.save(location);
         return "location/result";
     }

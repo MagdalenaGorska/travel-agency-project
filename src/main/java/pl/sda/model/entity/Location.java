@@ -11,6 +11,7 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @NotBlank
     @Size(min = 3, max = 50, message = "Państwo musi posiadać od {min} do {max} znaków")
     private String country;
@@ -60,8 +61,8 @@ public class Location {
     }
     @Override
     public String toString() {
-        return "country: " + country + "/n" +
-                ", city: " + city + "/n" +
+        return "country: " + country +
+                ", city: " + city +
                 ", address: " + address;
     }
 }
