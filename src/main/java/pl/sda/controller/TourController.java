@@ -33,8 +33,9 @@ public class TourController {
 
     //dodawanie w formularzu
     @PostMapping("/add") // http://localhost:8080/tour/add
-    public String tourAdder(@Validated @ModelAttribute("tour") Tour tour, BindingResult bindingResult) {
+    public String tourAdder(Model model,@Validated @ModelAttribute("tour") Tour tour, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){
+            model.addAttribute("locations", locationService.getAll());
             return "tour/form";
         }
         tourService.save(tour);

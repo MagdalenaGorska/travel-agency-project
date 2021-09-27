@@ -20,23 +20,19 @@ public class Tour {
     private Location arrivalLocation;
     @ManyToOne
     private Location destination;
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfDeparture;
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfArrival;
     private Integer tourLength;
     private String boardType;
-
-    @NotBlank
-    @NotNull
-    @DecimalMin(value = "0.0")
+    @Positive(message = "Price for adult must be upper than 0")
     private BigDecimal priceForAdult;
-    @DecimalMin(value = "0.0")
+    @Positive(message = "Price for children must be upper than 0")
     private BigDecimal priceForChild;
-    @NotNull
-    @Min(value = 1)
+    @Min(value = 1, message = "Minimal number of adults is one")
     private Integer howManyAdults;
-    @Min(value = 0)
+    @Min(value = 0, message = "Number of children can't be negative")
     private Integer howManyChildren;
 
 

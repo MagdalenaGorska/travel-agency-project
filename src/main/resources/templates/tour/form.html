@@ -41,11 +41,11 @@
         </div>
 
         <div>
-            <label>Departure Date: <input type="datetime-local" th:field="*{dateOfDeparture}"></label>
+            <label>Departure Date: <input type="date" th:field="*{dateOfDeparture}"></label>
         </div>
 
         <div>
-            <label>Arrival Date: <input type="datetime-local" th:field="*{dateOfArrival}"></label>
+            <label>Arrival Date: <input type="date" th:field="*{dateOfArrival}"></label>
         </div>
 
         <div>
@@ -60,30 +60,41 @@
         </div>
 
         <div>
-            <label class="form-label" for="priceForAdult"> Price for adults: </label>
-<!--            <label class="form-label">Price for adults:-->
+
+<!--           <label class="form-label">Price for adults:-->
 <!--                <input type="number" th:field="*{priceForAdult}">-->
+<!--           </label>-->
+
+            <label class="form-label" for="priceForAdult"> Price for adults: </label>
                 <input class="form-control" id="priceForAdult" type="number" th:field="*{priceForAdult}"  th:classappend="${#fields.hasErrors('priceForAdult')} ? 'is-invalid' : ''">
                 <div class="invalid-feedback" th:if="${#fields.hasErrors('priceForAdult')}" th:errors="*{priceForAdult}"></div>
+        </div>
+
+        <div>
+            <label class="form-label" for="priceForChild"> Price for children: </label>
+            <input class="form-control" id="priceForChild" type="number" th:field="*{priceForChild}"  th:classappend="${#fields.hasErrors('priceForChild')} ? 'is-invalid' : ''">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('priceForChild')}" th:errors="*{priceForChild}"></div>
+<!--            <label class="form-label">Price for child:-->
+<!--                <input type="number" th:field="*{priceForChild}">-->
 <!--            </label>-->
         </div>
 
         <div>
-            <label class="form-label">Price for child:
-                <input type="number" th:field="*{priceForChild}">
-            </label>
+            <label class="form-label" for="howManyAdults"> Number of adults: </label>
+            <input class="form-control" id="howManyAdults" type="number" th:field="*{howManyAdults}"  th:classappend="${#fields.hasErrors('howManyAdults')} ? 'is-invalid' : ''">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('howManyAdults')}" th:errors="*{howManyAdults}"></div>
+<!--            <label class="form-label">Number of adults:-->
+<!--                <input type="number" th:field="*{howManyAdults}">-->
+<!--            </label>-->
         </div>
 
         <div>
-            <label class="form-label">Number of adults:
-                <input type="number" th:field="*{howManyAdults}">
-            </label>
-        </div>
-
-        <div>
-            <label class="form-label">Number of children:
-                <input type="number" th:field="*{howManyChildren}">
-            </label>
+            <label class="form-label" for="howManyChildren"> Number of children: </label>
+            <input class="form-control" id="howManyChildren" type="number" th:field="*{howManyChildren}"  th:classappend="${#fields.hasErrors('howManyChildren')} ? 'is-invalid' : ''">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('howManyChildren')}" th:errors="*{howManyChildren}"></div>
+<!--            <label class="form-label">Number of children:-->
+<!--                <input type="number" th:field="*{howManyChildren}">-->
+<!--            </label>-->
         </div>
 
         <input class="btn btn-primary" type="submit" value="Zatwierdź">

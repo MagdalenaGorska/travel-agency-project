@@ -13,7 +13,11 @@
 <body>
 <nav th:replace="fragments.html :: my-header('register-form')"></nav>
 <div class="container">
+<!--    <form class="row g-3" method="post" autocomplete="off" th:object="${username}" th:action="@{/user/register}">-->
     <form th:action="@{/user/register}" method="post">
+<!--        <label class="form-label" for="username">Username:</label>-->
+<!--        <input class="form-control" id="username" type="text" th:field="*{username}"  th:classappend="${#fields.hasErrors('username')} ? 'is-invalid' : ''">-->
+<!--        <div class="invalid-feedback" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>-->
         <label>
             Username:
             <input type="text" name="username">
