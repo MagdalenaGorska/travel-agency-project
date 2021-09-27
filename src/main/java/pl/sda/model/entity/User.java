@@ -18,11 +18,11 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
-    @Size(min = 3, max = 20, message = "Username musi posiadać od {min} do {max} znaków")
+
+   // @Size(min = 3, max = 20, message = "Username musi posiadać od {min} do {max} znaków")
     private String username;
-    @NotBlank
-    @Size(min = 3, max = 20, message = "Password musi posiadać od {min} do {max} znaków")
+
+   // @Size(min = 3, max = 20, message = "Password musi posiadać od {min} do {max} znaków")
     private String password;
     private String role = "USER";
 
