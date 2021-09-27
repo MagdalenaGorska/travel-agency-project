@@ -2,6 +2,7 @@ package pl.sda.model.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -9,17 +10,10 @@ public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToMany
-    @Column(length = 500)
-    private List<Tour> tourList;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Tour> tourList = new ArrayList<>();
     @OneToOne
     private User user;
-
-    public Basket(List<Tour> tourList) {
-        this.tourList = tourList;
-    }
-
-    public Basket(){}
 
 
     public User getUser() {

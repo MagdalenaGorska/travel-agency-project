@@ -19,8 +19,7 @@ public class User implements UserDetails {
     private String username;
     private String password;
     private String role = "USER";
-    @OneToOne
-    private Basket basket;
+
 
     public Long getId() {
         return id;
@@ -41,13 +40,6 @@ public class User implements UserDetails {
         return username;
     }
 
-    public Basket getBasket() {
-        return basket;
-    }
-
-    public void setBasket(Basket basket) {
-        this.basket = basket;
-    }
 
     public void setUsername(String username) {
         this.username = username;

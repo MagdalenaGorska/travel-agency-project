@@ -61,7 +61,7 @@
     </div>
     <div sec:authorize="hasRole('ROLE_USER')">
       <td>
-        <form th:action="@{/basket/add}" method="post">
+        <form th:action="@{/basket/list}" method="post">
           <input type="hidden" name="tourId" th:value="${tour.id}">
           <button type="submit">Add to basket</button>
         </form>

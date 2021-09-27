@@ -143,4 +143,21 @@ public class Tour {
     public void setHowManyChildren(Integer howManyChildren) {
         this.howManyChildren = howManyChildren;
     }
+
+    @Override
+    public String toString() {
+        return "Tour{" +
+                "departureLocation=" + departureLocation +
+                ", arrivalLocation=" + arrivalLocation +
+                ", destination=" + destination +
+                ", dateOfDeparture=" + dateOfDeparture +
+                ", dateOfArrival=" + dateOfArrival +
+                ", tourLength=" + tourLength +
+                ", boardType='" + boardType + '\'' +
+                ", priceForAdult=" + priceForAdult +
+                ", priceForChild=" + priceForChild +
+                ", howManyAdults=" + howManyAdults +
+                ", howManyChildren=" + howManyChildren +
+                '}';
+    }
 }

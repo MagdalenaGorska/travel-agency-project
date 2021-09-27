@@ -35,7 +35,7 @@ public class BasketController {
     }
 
     //dodanie wycieczki do koszyka
-    @PostMapping ("/tour/list") // http://localhost:8080/basket/list
+    @PostMapping ("/basket/list") // http://localhost:8080/basket/list
     public String addTour(@RequestParam int tourId) {
         Tour tour = tourService.getById(tourId);
         // wybieramy uzytkownika z wykorzystaniem metody getLoggedUser
@@ -44,7 +44,7 @@ public class BasketController {
         Basket basket = basketService.findBasketForUser(user);
         basket.addTour(tour);
         basketService.save(basket);
-        return "/basket/list";
+        return "redirect:/basket/list";
     }
 
     private User getLoggedUser() {
